@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+    <record id="ir_module_music_parent" model="ir.module.category">
+        <field name="name">Music</field>
+    </record>
     <record id="ir_module_music_school" model="ir.module.category">
         <field name="name">Music School</field>
+        <field name="parent_id" ref="music_school_idris.ir_module_music_parent"/>
         <field name="sequence">10</field>
     </record>
 

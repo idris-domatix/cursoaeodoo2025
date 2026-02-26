@@ -33,6 +33,9 @@
         <field name="model">music.school.student</field>
         <field name="arch" type="xml">
             <form string="Students">
+                <header>
+                <button string="Generate reference" name="generate_reference" type="object" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -41,6 +44,7 @@
                     </div>
                     <group>
                         <group>
+                            <field name="reference" readonly="1"/>
                             <field name="active"></field>       
                             <field name="email"></field>
                             <field name="phone"></field>
