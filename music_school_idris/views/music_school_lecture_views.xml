@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="music_school_lecture_action" model="ir.actions.act_window">
+        <field name="name">Lecture</field>
+        <field name="res_model">music.school.lecture</field>
+        <field name="view_mode">kanban,list,pivot,graph,calendar,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            Create your first lecture
+        </p>
+        </field>
+    </record>
+
+    <record id="music_school_lecture_view_list" model="ir.ui.view">
+
+        <field name="name">music.school.lecture.list</field>
+        <field name="model">music.school.lecture</field>
+        <field name="arch" type="xml">
+            <list string="Lecture">
+                <field name="name"/>
+                <field name="teacher_id"></field>
+                <field name="course_id"></field>
+                <field name="classroom_id"></field>
+                <field name="date"></field>
+                <field name="duration" widget="float_time"></field>
+                <field name="notes"></field>
+            </list>
+        </field>
+    </record>
+
+    <record id="music_school_lecture_view_form" model="ir.ui.view">
+        <field name="name">music.school.lecture.form</field>
+        <field name="model">music.school.lecture</field>
+        <field name="arch" type="xml">
+            <form string="Lecture">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Lecture Name"/>
+                        </h1>
+                    </div>
+                    <group>         
+                        <group>
+                            <field name="teacher_id"></field>
+                            <field name="course_id"></field>
+                            <field name="state" widget="statusbar" statusbar_visible="scheduled,completed,canceled" readonly="0"></field>
+                            <field name="classroom_id"></field>
+                        </group>  
+                        <group>
+                            <field name="date"></field>
+                            <field name="duration" widget="float_time"></field>
+                            <field name="notes"></field>
+                        </group>  
+                    </group>  
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="music_school_lecture_view_search" model="ir.ui.view">
+        <field name="name">music.school.lecture.view.search</field>
+        <field name="model">music.school.lecture</field>
+        <field name="arch" type="xml">
+            <search string="Lecture">
+                <field name="name"/>
+                <field name="teacher_id"/>
+                <field name="course_id"/>
+                <field name="classroom_id"/>
+                <filter name="with_classroom" string="With Classroom" domain="[('classroom_id', '!=', False)]"/>
+                <filter name="without_classroom" string="Without Classroom" domain="[('classroom_id', '=', False)]"/>
+                <filter name="group_by_teacher" string="Teacher" context="{'group_by': 'teacher_id'}" />
+                <filter name="group_by_state" string="State" context="{'group_by': 'state'}" />
+                <filter name="filter_yesterday" string="Yesterday" domain="[('date', '&gt;=', (context_today() - relativedelta(days=1))),
+                 ('date', '&lt;', context_today())]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="music_school_lecture_view_kanban" model="ir.ui.view">
+        <field name="name">music.school.lecture.view.kanban</field>
+        <field name="model">music.school.lecture</field>
+        <field name="arch" type="xml">
+            <kanban highlight_color="color" default_group_by="state" class="o_kanban_small_column" on_create="quick_create">
+            <field name="name"></field>
+            <field name="teacher_id"></field>
+            <field name="date"></field>
+                <templates>
+                    <t t-name="menu">
+                        <t t-if="widget.editable"><a role="menuitem" type="open" class="dropdown-item">Edit</a></t>
+                        <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                        <field name="color" widget="kanban_color_picker"></field>
+                    </t> 
+                    <t t-name="card">
+                        <field name="course_id" class="fw-bold fs-5"></field>
+                        <field name="classroom_id"></field>
+                        <field name="date"></field>
+                        <footer>
+                            <div class="d-flex mt-auto align-items-center">
+                                <field name="state" class="me-2"></field>
+                            </div>
+                            <field name="teacher_id" widget="many2one_avatar_user" class="ms-auto"></field>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="music_school_lecture_view_pivot" model="ir.ui.view">
+        <field name="name">music.school.lecture.view.pivot</field>
+        <field name="model">music.school.lecture</field>
+        <field name="arch" type="xml">
+            <pivot string="Lecture">
+                <field name="teacher_id" type="row"/>
+                <field name="course_id" type="col"/>
+                <field name="duration" widget="float_time" type="measure"/>
+
+            </pivot>
+        </field>
+    </record>
+
+    <record id="music_school_lecture_view_graph" model="ir.ui.view">
+        <field name="name">music.school.lecture.view.graph</field>
+        <field name="model">music.school.lecture</field>
+        <field name="arch" type="xml">
+            <graph string="Lecture" type="bar">
+                <field name="teacher_id"></field>
+                <field name="duration" widget="float_time" type="measure"></field>
+            </graph>
+        </field>
+    </record>
+
+    <record id="music_school_lecture_view_calendar" model="ir.ui.view">
+        <field name="name">music.school.lecture.view.calendar</field>
+        <field name="model">music.school.lecture</field>
+        <field name="arch" type="xml">
+            <calendar string="Lecture Calendar" date_start="date" color="teacher_id">
+                <field name="name"></field>
+                <field name="teacher_id"></field>
+                <field name="course_id"></field>
+                <field name="classroom_id"></field>
+            </calendar>
+        </field>
+    </record>
+</odoo>

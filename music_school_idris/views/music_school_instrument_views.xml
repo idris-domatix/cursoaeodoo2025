@@ -19,6 +19,7 @@
         <field name="arch" type="xml">
             <list string="Instruments">
                 <field name="name"/>
+                <field name="family_id"></field>
                 <field name="family"/>
                 <field name="maintenance_date"/>
                 <field name="description" optional="hide"/>
@@ -38,9 +39,11 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="family_id"></field>
                         <field name="family" widget="radio"></field> 
                         <field name="maintenance_date"></field>
-                        <button name = "action_set_maintenance_date" 
+                        <button string="Set maintenance date"
+                                name = "action_set_maintenance_date" 
                                 type="object" 
                                 class="btn-primary"/>
                     </group>  

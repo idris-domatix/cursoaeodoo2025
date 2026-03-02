@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="music_school_course_action" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">music.school.course</field>
+        <field name="view_mode">kanban,list,pivot,graph,calendar,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            Create your first course
+        </p>
+        </field>
+    </record>
+
+    <record id="music_school_course_view_list" model="ir.ui.view">
+        <field name="name">music.school.course.list</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <list string="Course">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="state"></field>
+                <field name="teacher_id" optional="hide"/>
+                <field name="instrument_id" optional="show"/>
+                <field name="level"></field>
+                <field name="start_date"></field>
+                <field name="end_date"></field>
+                <field name="capacity"></field>
+            </list>
+        </field>
+    </record>
+
+    <record id="music_school_course_view_form" model="ir.ui.view">
+        <field name="name">music.school.course.form</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <form string="Course">
+            <header>
+            <button string="Action Draft" invisible="state == 'draft'" name="action_draft" type="object" class="btn-primary"/>
+            <button string="Action In progress" invisible="state == 'progress'" name="action_in_progress" type="object" class="btn-primary"/>
+            <button string="Action Done" invisible="state == 'done'" name="action_done" type="object" class="btn-primary"/>
+            <button string="Create lecture" name="create_lecture" type="object" class="btn-primary"/>
+            <button string="Assign Students" name="assign_students" type="object" class="btn-secondary"/>
+            <field name="state" options="{'clickable': True}" widget="statusbar"></field>
+            </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Course Name"/>
+                        </h1>
+                    </div>
+                    <group>         
+                        <group>
+                            <field name="teacher_id" domain="[('level', '=', level)]"/>
+                            <field name="instrument_id"></field>
+                            <field name="level"></field>
+                        </group>  
+                        <group>
+                            <field name="start_date"></field>
+                            <field name="end_date"></field>
+                            <field name="capacity"></field>
+                        </group>
+                    </group>  
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Students">
+                            <field name="student_ids"/>
+                        </page>
+                    </notebook> 
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="music_school_course_view_search" model="ir.ui.view">
+        <field name="name">music.school.course.view.search</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <search string="Course">
+                <field name="name" filter_domain="[ '|',('instrument_id','ilike',self),('name','ilike',self)]"/>
+                <field name="teacher_id"/>
+                <field name="instrument_id"/>
+                <field name="level"/>
+                <filter name ="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name ="progress" string="In Progress" domain="[('state', '=', 'progress')]"/>
+                <filter name ="done" string="Done" domain="[('state', '=', 'done')]"/>
+                <filter name="group_by_teacher" string="Teacher" context="{'group_by': 'teacher_id'}" />
+                <filter name="group_by_level" string="Level" context="{'group_by': 'level'}" />
+            </search>
+        </field>
+    </record>
+
+    <record id="music_school_course_view_kanban" model="ir.ui.view">
+        <field name="name">music.school.course.view.kanban</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <kanban highlight_color="color" default_group_by="state" class="o_kanban_small_column" on_create="quick_create">
+            <field name="name"></field>
+            <field name="teacher_id"></field>
+            <field name="instrument_id"></field>
+            <field name="level"></field>
+            <field name="start_date"></field>
+                <templates>
+                    <t t-name="menu">
+                        <t t-if="widget.editable"><a role="menuitem" type="open" class="dropdown-item">Edit</a></t>
+                        <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                        <field name="color" widget="kanban_color_picker"></field>
+                    </t> 
+                    <t t-name="card">
+                        <field name="name" class="fw-bold fs-5"></field>
+                        <field name="instrument_id"></field>
+                        <field name="start_date"></field>
+                        <footer>
+                            <div class="d-flex mt-auto align-items-center">
+                                <field name="level" widget="priority" class="me-2"></field>
+                            </div>
+                            <field name="teacher_id" widget="many2one_avatar_user" class="ms-auto"></field>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="music_school_course_view_pivot" model="ir.ui.view">
+        <field name="name">music.school.course.view.pivot</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <pivot string="Course">
+                <field name="teacher_id" type="row"></field>
+                <field name="start_date" type="col"></field>
+                <field name="capacity" type="measure"></field>
+
+            </pivot>
+        </field>
+    </record>
+
+    <record id="music_school_course_view_graph" model="ir.ui.view">
+        <field name="name">music.school.course.view.graph</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <graph string="Course" type="bar">
+                <field name="teacher_id"></field>
+                <field name="capacity" type="measure"></field>
+            </graph>
+        </field>
+    </record>
+
+    <record id="music_school_course_view_calendar" model="ir.ui.view">
+        <field name="name">music.school.course.view.calendar</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <calendar string="Course" date_start="start_date" date_stop="end_date" color="teacher_id">
+                <field name="name"></field>
+                <field name="teacher_id"></field>
+                <field name="instrument_id"></field>
+                <field name="level"></field>
+                <field name="start_date"></field>
+                <field name="end_date"></field>
+            </calendar>
+        </field>
+    </record>
+</odoo>
