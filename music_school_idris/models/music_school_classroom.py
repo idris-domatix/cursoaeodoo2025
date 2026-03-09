@@ -7,3 +7,6 @@ class MusicSchoolClassroom(models.Model):
     name = fields.Char(string='Classroom Name')
     capacity = fields.Integer(string='Capacity')
     location = fields.Char(string='Location')
+
+    _sql_constraints = [
+        ('name_unique', 'UNIQUE(name)', 'Classroom name must be unique.')]

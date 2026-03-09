@@ -27,7 +27,7 @@
             </list>
         </field>
     </record>
-
+ 
     <record id="music_school_student_view_form" model="ir.ui.view">
         <field name="name">music.school.student.view.form</field>
         <field name="model">music.school.student</field>

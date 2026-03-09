@@ -42,10 +42,19 @@
             <button string="Action In progress" invisible="state == 'progress'" name="action_in_progress" type="object" class="btn-primary"/>
             <button string="Action Done" invisible="state == 'done'" name="action_done" type="object" class="btn-primary"/>
             <button string="Create lecture" name="create_lecture" type="object" class="btn-primary"/>
-            <button string="Assign Students" name="assign_students" type="object" class="btn-secondary"/>
+            <button string="Assign Students" name="assign_students" groups="music_school_idris.group_music_school_manager" type="object" class="btn-secondary"/>
+            <button string="Finish Lecture" name="action_finish_lecture" type="object" class="btn-success"/>
             <field name="state" options="{'clickable': True}" widget="statusbar"></field>
             </header>
                 <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_exams" type="object" class="oe_stat_button" icon="fa-book">
+                        <field name="exam_count" string="Exams" widget="statinfo"/>
+                    </button>
+                    <button name="action_view_lectures" type="object" class="oe_stat_button" icon="fa-pencil">
+                        <field name="lecture_count" string="Lectures" widget="statinfo"/>
+                    </button>
+                </div>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Course Name"/>
@@ -53,13 +62,15 @@
                     </div>
                     <group>         
                         <group>
-                            <field name="teacher_id" domain="[('level', '=', level)]"/>
+                            <field name="teacher_id" options="{'no_create':1,'no_quick_create':1, 'no_open':1}" domain="[('level', '=', level)]"/>
                             <field name="instrument_id"></field>
                             <field name="level"></field>
+                            <field name="company_id"></field>
                         </group>  
                         <group>
                             <field name="start_date"></field>
                             <field name="end_date"></field>
+                            <field name="duration_days"></field>
                             <field name="capacity"></field>
                         </group>
                     </group>  
@@ -94,31 +105,35 @@
         </field>
     </record>
 
-    <record id="music_school_course_view_kanban" model="ir.ui.view">
+        <record id="music_school_course_view_kanban" model="ir.ui.view">
         <field name="name">music.school.course.view.kanban</field>
         <field name="model">music.school.course</field>
         <field name="arch" type="xml">
-            <kanban highlight_color="color" default_group_by="state" class="o_kanban_small_column" on_create="quick_create">
-            <field name="name"></field>
-            <field name="teacher_id"></field>
-            <field name="instrument_id"></field>
-            <field name="level"></field>
-            <field name="start_date"></field>
+            <kanban highlight_color="color" default_group_by="state" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="teacher_id"/>
+                <field name="instrument_id"/>
+                <field name="level"/>
+                <field name="start_date"/>
+                <field name="state"/>
+                <field name="color"/>
+                <field name="capacity"/>
                 <templates>
                     <t t-name="menu">
                         <t t-if="widget.editable"><a role="menuitem" type="open" class="dropdown-item">Edit</a></t>
                         <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
-                        <field name="color" widget="kanban_color_picker"></field>
-                    </t> 
+                        <field name="color" widget="kanban_color_picker"/>
+                    </t>
                     <t t-name="card">
-                        <field name="name" class="fw-bold fs-5"></field>
-                        <field name="instrument_id"></field>
-                        <field name="start_date"></field>
+                        <field name="name" class="fw-bold fs-5"/>
+                        <field name="instrument_id"/>
+                        <field name="start_date"/>
+                        <field name="capacity" invisible="capacity == 0"/>
                         <footer>
                             <div class="d-flex mt-auto align-items-center">
-                                <field name="level" widget="priority" class="me-2"></field>
+                                <field name="level" widget="priority" class="me-2"/>
                             </div>
-                            <field name="teacher_id" widget="many2one_avatar_user" class="ms-auto"></field>
+                            <field name="teacher_id" widget="many2one_avatar" class="ms-auto"/>
                         </footer>
                     </t>
                 </templates>

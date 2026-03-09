@@ -12,6 +12,7 @@
     ],
     'data':[
         'data/music_school_data.xml',
+        'data/ir_cron.xml',
         'security/res_groups.xml',
         'security/ir.model.access.csv',
         'views/music_school_student_views.xml',
@@ -20,6 +21,9 @@
         'views/music_school_course_views.xml',
         'views/music_school_classroom_views.xml',
         'views/music_school_lecture_views.xml',
+        'views/music_school_lecture_attendance_views.xml',
+        'views/music_school_exam_views.xml',
         'views/music_school_menuitems.xml',
+        'wizard/music_school_course_change_state.xml',
     ],
 }

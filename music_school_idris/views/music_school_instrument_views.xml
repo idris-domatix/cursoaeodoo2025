@@ -42,6 +42,7 @@
                         <field name="family_id"></field>
                         <field name="family" widget="radio"></field> 
                         <field name="maintenance_date"></field>
+                        <field name="repaired"></field>
                         <button string="Set maintenance date"
                                 name = "action_set_maintenance_date" 
                                 type="object" 

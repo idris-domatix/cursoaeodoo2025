@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-27 12:07+0000\n"
-"PO-Revision-Date: 2026-02-27 12:07+0000\n"
+"POT-Creation-Date: 2026-03-06 07:25+0000\n"
+"PO-Revision-Date: 2026-03-06 07:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,17 +18,17 @@ msgstr ""
 #. module: music_school_idris
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
 msgid "Action Done"
-msgstr "Acción Finalizada"
+msgstr "Finalizar"
 
 #. module: music_school_idris
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
 msgid "Action Draft"
-msgstr "Acción en Borrador"
+msgstr "Borrador"
 
 #. module: music_school_idris
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
 msgid "Action In progress"
-msgstr "Acción en Proceso"
+msgstr "En Proceso"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__active
@@ -45,7 +45,13 @@ msgstr ""
 "especiales."
 
 #. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_lecture_attendance__notes
+msgid "Additional notes about the attendance"
+msgstr "Notas adicionales sobre la asistencia"
+
+#. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_course__level__advanced
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_teacher__level__advanced
 msgid "Advanced"
 msgstr "Avanzado"
 
@@ -55,14 +61,46 @@ msgid "Age"
 msgstr "Edad"
 
 #. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
+msgid "Assign Students"
+msgstr "Asignar Estudiantes"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_form
+msgid "Assign students"
+msgstr "Asignar estudiantes"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_attendance_simple_view_tree
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_lecture__attendance_ids
+msgid "Attendance records for the lecture"
+msgstr "Registros de asistencia de la lección"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__attendance_ids
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_form
+msgid "Attendances"
+msgstr "Asistencias"
+
+#. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_course__level__beginner
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_teacher__level__beginner
 msgid "Beginner"
 msgstr "Principiante"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__birthdate
 msgid "BirthDate"
-msgstr "Fecha de nacimiento"
+msgstr "Fecha de Nacimiento"
+
+#. module: music_school_idris
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_lecture__state__canceled
+msgid "Canceled"
+msgstr "Cancelada"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_classroom__capacity
@@ -86,11 +124,43 @@ msgid "Classroom Name"
 msgstr "Nombre del Aula"
 
 #. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__color
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__color
+msgid "Color"
+msgstr "Color"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__color
+msgid "Color Index"
+msgstr "Índice de Color"
+
+#. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_course__color
+#: model:ir.model.fields,help:music_school_idris.field_music_school_lecture__color
+msgid "Color for kanban view"
+msgstr "Color para la vista kanban"
+
+#. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_exam__color
+msgid "Color index for kanban view"
+msgstr "Índice de color para la vista kanban"
+
+#. module: music_school_idris
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_lecture__state__completed
+msgid "Completed"
+msgstr "Completada"
+
+#. module: music_school_idris
 #: model:ir.actions.act_window,name:music_school_idris.music_school_course_action
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__course_id
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__course_id
 #: model:ir.ui.menu,name:music_school_idris.music_school_course_menu
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_calendar
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_graph
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_list
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_pivot
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_search
 msgid "Course"
 msgstr "Curso"
 
@@ -106,6 +176,21 @@ msgid "Course Name"
 msgstr "Nombre del Curso"
 
 #. module: music_school_idris
+#: model:ir.model.constraint,message:music_school_idris.constraint_music_school_course_name_unique
+msgid "Course name must be unique."
+msgstr "El nombre del curso debe ser único."
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
+msgid "Create lecture"
+msgstr "Crear lección"
+
+#. module: music_school_idris
+#: model_terms:ir.actions.act_window,help:music_school_idris.music_school_lecture_attendance_action
+msgid "Create your first attendance record"
+msgstr "Crea tu primer registro de asistencia"
+
+#. module: music_school_idris
 #: model_terms:ir.actions.act_window,help:music_school_idris.music_school_classroom_action
 msgid "Create your first classroom"
 msgstr "Crea tu primer aula"
@@ -114,6 +199,12 @@ msgstr "Crea tu primer aula"
 #: model_terms:ir.actions.act_window,help:music_school_idris.music_school_course_action
 msgid "Create your first course"
 msgstr "Crea tu primer curso"
+
+#. module: music_school_idris
+#: model_terms:ir.actions.act_window,help:music_school_idris.music_school_exam_action
+#: model_terms:ir.actions.act_window,help:music_school_idris.music_school_exam_self_action
+msgid "Create your first exam"
+msgstr "Crea tu primer examen"
 
 #. module: music_school_idris
 #: model_terms:ir.actions.act_window,help:music_school_idris.music_school_instrument_action
@@ -138,8 +229,12 @@ msgstr "Crea tu primer profesor"
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_classroom__create_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__create_uid
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__create_uid
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__create_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__create_uid
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument_family__create_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__create_uid
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__create_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__create_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__create_uid
 msgid "Created by"
@@ -148,8 +243,12 @@ msgstr "Creado por"
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_classroom__create_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__create_date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__create_date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__create_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__create_date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument_family__create_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__create_date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__create_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__create_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__create_date
 msgid "Created on"
@@ -157,8 +256,25 @@ msgstr "Creado el"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__date
 msgid "Date"
 msgstr "Fecha"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__date
+msgid "Date & Time"
+msgstr "Fecha y Hora"
+
+#. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_lecture_attendance__date
+msgid "Date of the attendance record"
+msgstr "Fecha del registro de asistencia"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_kanban
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_kanban
+msgid "Delete"
+msgstr "Eliminar"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__description
@@ -170,8 +286,12 @@ msgstr "Descripción"
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_classroom__display_name
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__display_name
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__display_name
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__display_name
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__display_name
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument_family__display_name
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__display_name
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__display_name
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__display_name
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__display_name
 msgid "Display Name"
@@ -179,18 +299,37 @@ msgstr "Nombre mostrado"
 
 #. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_course__state__done
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_search
 msgid "Done"
 msgstr "Hecho"
 
 #. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_course__state__draft
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_exam__state__draft
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_search
 msgid "Draft"
 msgstr "Borrador"
 
 #. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__duration_days
+msgid "Duration (days)"
+msgstr "Duración (días)"
+
+#. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__duration
 msgid "Duration (hours)"
-msgstr "Duración"
+msgstr "Duración (horas)"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_kanban
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_kanban
+msgid "Edit"
+msgstr "Editar"
+
+#. module: music_school_idris
+#: model:music.school.instrument.family,name:music_school_idris.music_school_family_electronic
+msgid "Electronic"
+msgstr "Electrónico"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__email
@@ -201,27 +340,84 @@ msgstr "Correo electrónico"
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__end_date
 msgid "End Date"
-msgstr "fecha de fin"
+msgstr "Fecha de Fin"
 
 #. module: music_school_idris
-#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__family
+#: model:ir.actions.act_window,name:music_school_idris.music_school_exam_action
+#: model:ir.actions.act_window,name:music_school_idris.music_school_exam_self_action
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__exam_id
+#: model:ir.ui.menu,name:music_school_idris.music_school_exam_menu
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_form
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_search
+msgid "Exam"
+msgstr "Examen"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__name
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_form
+msgid "Exam Name"
+msgstr "Nombre del Examen"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__result_ids
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_form
+msgid "Exam Results"
+msgstr "Resultados del Examen"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__teacher_id
+msgid "Examiner"
+msgstr "Examinador"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_list
+msgid "Exams"
+msgstr "Exámenes"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__family_id
 msgid "Family"
 msgstr "Familia"
 
 #. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__family
+msgid "Family Name"
+msgstr "Familia"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
+msgid "Finish Lecture"
+msgstr "Finalizar Lección"
+
+#. module: music_school_idris
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_exam__state__finished
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_search
+msgid "Finished"
+msgstr "Finalizado"
+
+#. module: music_school_idris
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_student_view_form
 msgid "Generate reference"
-msgstr "Genera Matricula"
+msgstr "Generar matrícula"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_classroom__id
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__id
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__id
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__id
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__id
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument_family__id
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__id
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__id
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__id
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_search
+msgid "In Progress"
+msgstr "En Proceso"
 
 #. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_course__state__progress
@@ -230,6 +426,7 @@ msgstr "En proceso"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__instrument_id
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__instrument_id
 #: model:ir.ui.menu,name:music_school_idris.music_school_instrument_menu
 msgid "Instrument"
 msgstr "Instrumento"
@@ -237,16 +434,17 @@ msgstr "Instrumento"
 #. module: music_school_idris
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_instrument_view_form
 msgid "Instrument Name"
-msgstr "Nombre del instrumento"
+msgstr "Nombre del Instrumento"
 
 #. module: music_school_idris
 #: model:ir.model.fields,help:music_school_idris.field_music_school_course__instrument_id
 msgid "Instrument associated with the course"
-msgstr "Instrumento asociado al Curso"
+msgstr "Instrumento asociado al curso"
 
 #. module: music_school_idris
 #: model:ir.actions.act_window,name:music_school_idris.music_school_instrument_action
 #: model:ir.model,name:music_school_idris.model_music_school_instrument
+#: model:ir.model,name:music_school_idris.model_music_school_instrument_family
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_instrument_view_form
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_instrument_view_list
 msgid "Instruments"
@@ -254,24 +452,30 @@ msgstr "Instrumentos"
 
 #. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_course__level__intermediate
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_teacher__level__intermediate
 msgid "Intermediate"
 msgstr "Intermedio"
 
 #. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_instrument__family__keyboard
+#: model:music.school.instrument.family,name:music_school_idris.music_school_family_keyboard
 msgid "Keyboard"
 msgstr "Teclado"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__maintenance_date
 msgid "Last Maintenance Date"
-msgstr "Ultima Fecha de Mantenimiento"
+msgstr "Última Fecha de Mantenimiento"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_classroom__write_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__write_uid
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__write_uid
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__write_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__write_uid
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument_family__write_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__write_uid
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__write_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__write_uid
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__write_uid
 msgid "Last Updated by"
@@ -280,8 +484,12 @@ msgstr "Última actualización por"
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_classroom__write_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__write_date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__write_date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__write_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__write_date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument_family__write_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__write_date
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__write_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__write_date
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__write_date
 msgid "Last Updated on"
@@ -289,11 +497,27 @@ msgstr "Última actualización el"
 
 #. module: music_school_idris
 #: model:ir.actions.act_window,name:music_school_idris.music_school_lecture_action
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__lecture_id
 #: model:ir.ui.menu,name:music_school_idris.music_school_lecture_menu
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_form
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_graph
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_list
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_pivot
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_search
 msgid "Lecture"
 msgstr "Lección"
+
+#. module: music_school_idris
+#: model:ir.actions.act_window,name:music_school_idris.music_school_lecture_attendance_action
+#: model:ir.ui.menu,name:music_school_idris.music_school_lecture_attendances_menu
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_attendance_view_list
+msgid "Lecture Attendance"
+msgstr "Asistencia a la Lección"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_calendar
+msgid "Lecture Calendar"
+msgstr "Calendario de Lecciones"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__name
@@ -303,6 +527,8 @@ msgstr "Nombre de la Lección"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__level
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__level
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_search
 msgid "Level"
 msgstr "Nivel"
 
@@ -317,9 +543,19 @@ msgid "Manager"
 msgstr "Responsable"
 
 #. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__maximum_score
+msgid "Maximum Score"
+msgstr "Puntuación Máxima"
+
+#. module: music_school_idris
 #: model:ir.model.fields,help:music_school_idris.field_music_school_course__capacity
 msgid "Maximum number of students in the course"
-msgstr "Máximo numero de Estudiantes en el Curso"
+msgstr "Número máximo de estudiantes en el curso"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__minimum_score
+msgid "Minimum Score"
+msgstr "Puntuación Mínima"
 
 #. module: music_school_idris
 #: model:ir.module.category,name:music_school_idris.ir_module_music_parent
@@ -340,12 +576,27 @@ msgstr "Aula de la Escuela de Música"
 #. module: music_school_idris
 #: model:ir.model,name:music_school_idris.model_music_school_course
 msgid "Music School Course"
-msgstr "Curso de la Escuela de Musica"
+msgstr "Curso de la Escuela de Música"
+
+#. module: music_school_idris
+#: model:ir.model,name:music_school_idris.model_music_school_exam
+msgid "Music School Exam"
+msgstr "Examen de la Escuela de Música"
+
+#. module: music_school_idris
+#: model:ir.model,name:music_school_idris.model_music_school_exam_result
+msgid "Music School Exam Result"
+msgstr "Resultado de Examen de la Escuela de Música"
 
 #. module: music_school_idris
 #: model:ir.model,name:music_school_idris.model_music_school_lecture
 msgid "Music School Lecture"
 msgstr "Lección de la Escuela de Música"
+
+#. module: music_school_idris
+#: model:ir.model,name:music_school_idris.model_music_school_lecture_attendance
+msgid "Music School Lecture Attendance"
+msgstr "Asistencia a Lección de la Escuela de Música"
 
 #. module: music_school_idris
 #: model:ir.model,name:music_school_idris.model_music_school_teacher
@@ -354,6 +605,7 @@ msgstr "Profesor de la Escuela de Música"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__name
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument_family__name
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__name
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__name
 msgid "Name"
@@ -361,18 +613,38 @@ msgstr "Nombre"
 
 #. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_course__level__none
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_teacher__level__none
 msgid "None"
-msgstr "Ninguna"
+msgstr "Ninguno"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_search
+msgid "Not Finished"
+msgstr "No Finalizado"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__notes
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__notes
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__notes
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_form
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_form
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_student_view_form
 msgid "Notes"
 msgstr "Notas"
 
 #. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__partner_id
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__passed
+msgid "Passed"
+msgstr "Aprobado"
+
+#. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_instrument__family__percussion
+#: model:music.school.instrument.family,name:music_school_idris.music_school_family_percussion
 msgid "Percussion"
 msgstr "Percusión"
 
@@ -384,12 +656,22 @@ msgstr "Teléfono"
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_teacher__phone
 msgid "Phone Number"
-msgstr "Numero de Teléfono"
+msgstr "Número de Teléfono"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__is_present
+msgid "Present"
+msgstr "Presente"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__reference
 msgid "Reference"
-msgstr ""
+msgstr "Referencia"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_instrument__repaired
+msgid "Repaired"
+msgstr "Reparado"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_student__user_id
@@ -397,26 +679,58 @@ msgid "Responsible"
 msgstr "Responsable"
 
 #. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_form
+msgid "Results"
+msgstr "Resultados"
+
+#. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_exam__result_ids
+msgid "Results of the exam for each student"
+msgstr "Resultados del examen para cada estudiante"
+
+#. module: music_school_idris
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_exam__state__scheduled
+#: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_lecture__state__scheduled
+msgid "Scheduled"
+msgstr "Programada"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__score
+msgid "Score"
+msgstr "Puntuación"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
+msgid "See exams"
+msgstr "Ver exámenes"
+
+#. module: music_school_idris
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_instrument_view_form
 msgid "Set maintenance date"
-msgstr "Indica la fecha de Mantenimiento"
+msgstr "Indicar fecha de mantenimiento"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__start_date
 msgid "Starting Date"
-msgstr "fecha de inicio"
+msgstr "Fecha de Inicio"
 
 #. module: music_school_idris
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__state
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam__state
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__state
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_search
 msgid "State"
 msgstr "Estado"
 
 #. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_instrument__family__string
+#: model:music.school.instrument.family,name:music_school_idris.music_school_family_string
 msgid "String"
 msgstr "Cuerda"
 
 #. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__student_id
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture_attendance__student_id
 #: model:ir.ui.menu,name:music_school_idris.music_school_student_menu
 msgid "Student"
 msgstr "Estudiante"
@@ -424,25 +738,46 @@ msgstr "Estudiante"
 #. module: music_school_idris
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_student_view_form
 msgid "Student Name"
-msgstr "Nombre del estudiante"
+msgstr "Nombre del Estudiante"
 
 #. module: music_school_idris
 #: model:ir.actions.act_window,name:music_school_idris.music_school_student_action
 #: model:ir.model,name:music_school_idris.model_music_school_student
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__student_ids
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__student_ids
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_form
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_student_view_form
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_student_view_list
 msgid "Students"
 msgstr "Estudiantes"
 
 #. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_exam_result__student_ids
+msgid "Students associated with the exam result"
+msgstr "Estudiantes asociados al resultado del examen"
+
+#. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_course__student_ids
+msgid "Students enrolled in the course"
+msgstr "Estudiantes matriculados en el curso"
+
+#. module: music_school_idris
 #: model:ir.actions.act_window,name:music_school_idris.music_school_teacher_action
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_course__teacher_id
 #: model:ir.model.fields,field_description:music_school_idris.field_music_school_lecture__teacher_id
 #: model:ir.ui.menu,name:music_school_idris.music_school_teacher_menu
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_course_view_search
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_exam_view_search
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_search
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_teacher_view_form
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_teacher_view_list
 msgid "Teacher"
 msgstr "Profesor"
+
+#. module: music_school_idris
+#: model:ir.model.fields,field_description:music_school_idris.field_music_school_exam_result__comments
+msgid "Teacher Comments"
+msgstr "Comentarios del Profesor"
 
 #. module: music_school_idris
 #: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_teacher_view_form
@@ -452,7 +787,17 @@ msgstr "Nombre del Profesor"
 #. module: music_school_idris
 #: model:ir.model.fields,help:music_school_idris.field_music_school_instrument__maintenance_date
 msgid "The date when the instrument was last maintained"
-msgstr "La fecha en la que en instrumento fue revisado por última vez"
+msgstr "La fecha en la que el instrumento fue revisado por última vez"
+
+#. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_instrument__family_id
+msgid "The family to which the instrument belongs"
+msgstr "La familia a la que pertenece el instrumento"
+
+#. module: music_school_idris
+#: model:ir.model.fields,help:music_school_idris.field_music_school_student__partner_id
+msgid "The partner associated with this student"
+msgstr "El contacto asociado a este estudiante"
 
 #. module: music_school_idris
 #: model:ir.model.fields,help:music_school_idris.field_music_school_student__user_id
@@ -466,8 +811,24 @@ msgstr "Usuario"
 
 #. module: music_school_idris
 #: model:ir.model.fields.selection,name:music_school_idris.selection__music_school_instrument__family__wind
+#: model:music.school.instrument.family,name:music_school_idris.music_school_family_wind
 msgid "Wind"
 msgstr "Viento"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_search
+msgid "With Classroom"
+msgstr "Con Aula"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_search
+msgid "Without Classroom"
+msgstr "Sin Aula"
+
+#. module: music_school_idris
+#: model_terms:ir.ui.view,arch_db:music_school_idris.music_school_lecture_view_search
+msgid "Yesterday"
+msgstr "Ayer"
 
 #. module: music_school_idris
 #: model:res.groups,comment:music_school_idris.group_music_school_manager

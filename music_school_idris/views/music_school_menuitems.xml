@@ -19,5 +19,8 @@
     <menuitem id="music_school_course_menu" name="Course" action="music_school_course_action" sequence="40"/>
     <menuitem id="music_school_classroom_menu" name="Classroom" action="music_school_classroom_action" sequence="50"/>
     <menuitem id="music_school_lecture_menu" name="Lecture" action="music_school_lecture_action" sequence="60"/>
+    <menuitem id="music_school_lecture_attendances_menu" name="Lecture Attendance" action="music_school_lecture_attendance_action" sequence="70"/>
+    <menuitem id="music_school_exam_menu" name="Exam" action="music_school_exam_action" sequence="80"/>
+
 </menuitem>
 </odoo>

@@ -24,7 +24,8 @@
                 <field name="teacher_id"></field>
                 <field name="course_id"></field>
                 <field name="classroom_id"></field>
-                <field name="date"></field>
+                <field name="state"></field>
+                <field name="date" widget="datetime"></field>
                 <field name="duration" widget="float_time"></field>
                 <field name="notes"></field>
             </list>
@@ -50,11 +51,18 @@
                             <field name="classroom_id"></field>
                         </group>  
                         <group>
-                            <field name="date"></field>
+                            <field name="date" widget="datetime"></field>
                             <field name="duration" widget="float_time"></field>
-                            <field name="notes"></field>
                         </group>  
                     </group>  
+                    <notebook>
+                        <page name="notes" string="Notes">
+                            <field name="notes" widget="html" options="{'toolbar': 'full'}"></field>
+                        </page>
+                        <page name="attendances" string="Attendances">
+                            <field name="attendance_ids" context="{'default_is_present': True, 'default_date': date, 'list_view_ref': 'music_school_idris.music_school_lecture_attendance_simple_view_tree'}"></field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
