@@ -62,8 +62,8 @@
                     </div>
                     <group>         
                         <group>
-                            <field name="teacher_id" options="{'no_create':1,'no_quick_create':1, 'no_open':1}" domain="[('level', '=', level)]"/>
                             <field name="instrument_id"></field>
+                            <field name="teacher_id" options="{'no_create':1,'no_quick_create':1, 'no_open':1}" domain="[('level', '=', level)]"/>
                             <field name="level"></field>
                             <field name="company_id"></field>
                         </group>  

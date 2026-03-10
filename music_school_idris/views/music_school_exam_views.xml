@@ -37,7 +37,7 @@
         <field name="arch" type="xml">
             <form string="Exam">
                 <header>
-                    <button string="Assign students" name="assign_students" type="object" class="btn-primary"/>
+                    <button string="Assign students" groups="music_school_idris.group_music_school_manager" name="assign_students" type="object" class="btn-primary"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,scheduled,finished"/>
                 </header>
                 <sheet>

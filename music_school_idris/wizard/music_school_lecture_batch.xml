@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="music_school_lecture_batch_action" model="ir.actions.act_window">
+        <field name="name">Create Lectures</field>
+        <field name="res_model">music.school.lecture.batch</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_course_id': active_id}</field>
+        <field name="binding_model_id" ref="music_school_idris.model_music_school_course"></field>
+        <field name="binding_view_types">form</field>
+    </record>
+
+    <record id="music_school_lecture_batch_view_form" model="ir.ui.view">
+        <field name="name">music.school.lecture.batch.view.form</field>
+        <field name="model">music.school.lecture.batch</field>
+        <field name="arch" type="xml">
+            <form string="">
+                    <group>
+                        <field name="course_id"></field>
+                        <field name="start_date" widget="daterange" options="{'end_date_field': 'end_date'}"></field>
+                        <field name="end_date" widget="daterange" invisible="1"></field>
+                    </group>
+                    <footer>
+                        <button string="Create Lectures" name="action_create_lectures" class="btn-primary" type="object" />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

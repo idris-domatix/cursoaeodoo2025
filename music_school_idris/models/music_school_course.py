@@ -7,8 +7,8 @@ class MusicSchoolCourse(models.Model):
     _name = 'music.school.course'
     _description = 'Music School Course'
 
-    name = fields.Char(string='Course Name', required=True)
-    description = fields.Text(string='Course Description')
+    name = fields.Char(string='Course Name', copy=False)
+    description = fields.Text(string='Course Description', company_dependent=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('progress', 'In progress'),
@@ -18,7 +18,7 @@ class MusicSchoolCourse(models.Model):
     default='draft',
     group_expand='group_expand_state'
     )
-
+    active = fields.Boolean(string='Active', default=True)
     teacher_id = fields.Many2one('music.school.teacher', string='Teacher')
 
     instrument_id = fields.Many2one(
