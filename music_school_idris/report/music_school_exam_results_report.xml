@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_music_school_exam_results">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="o.course_id.name"/>
+                            <div class="row">    
+                               <div class="col-auto col-4 mw-100 mb-2">
+                                    <strong>Course: </strong>
+                                    <span t-field="o.course_id.name"/>
+                                </div>
+                                <div class="col-auto col-4 mw-100 mb-2">
+                                    <strong>Examiner: </strong>
+                                    <span t-field="o.teacher_id.name"/>
+                                </div>
+                                <div class="col-auto col-4 mw-100 mb-2">
+                                    <strong>Date: </strong>
+                                    <span t-field="o.date"/>
+                                </div>
+                            </div>
+                            <table class="table table-sm o_main_table table-bordered mt-4">
+                                <thead>
+                                    <tr>
+                                        <th class="text-start">Student</th>
+                                        <th class="text-start">Score</th>
+                                        <th class="text-start">Passed</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.result_ids" t-as="result">
+                                        <tr>
+                                           <td><span t-field="result.student_id.name"/></td>
+                                            <td><span t-field="result.score"/></td>
+                                        <td>
+                                            <t t-if="result.passed">
+                                                <span>Yes</span>
+                                            </t>
+                                            <t t-else="">
+                                                <span>No</span>
+                                            </t>
+                                        </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_music_school_exam_results" model="ir.actions.report">
+        <field name="name">Exam Results</field>
+        <field name="model">music.school.exam</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">music_school_idris.report_music_school_exam_results</field>
+        <field name="report_file">music_school_idris.report_music_school_exam_results</field>
+        <field name="print_report_name">'%s' % object.course_id.name</field>
+        <field name="paperformat_id" ref="paperformat_music_school"/>
+        <field name="binding_model_id" ref="model_music_school_exam"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

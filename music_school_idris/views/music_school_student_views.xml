@@ -37,6 +37,11 @@
                 <button string="Generate reference" name="generate_reference" type="object" class="oe_highlight"/>
                 </header>
                 <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_attendance" type="object" class="oe_stat_button" icon="fa-book">
+                        <field name="attendance_count" string="Attendances" widget="statinfo"/>
+                    </button>
+                </div>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Student Name"/>

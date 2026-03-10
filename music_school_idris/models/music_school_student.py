@@ -39,6 +39,11 @@ class MusicSchoolStudent(models.Model):
         string="Reference"
         )
     
+    attendance_count = fields.Integer(
+        string="Attendance Count",
+        compute="_compute_attendance_count"
+    )
+
     @api.onchange('partner_id')
     def _onchange_email(self):
         if self.partner_id:
@@ -59,3 +64,16 @@ class MusicSchoolStudent(models.Model):
                 record.age = age
             else:
                 record.age = 0
+
+    def action_view_attendance(self):
+        return {
+            'name': 'Attendance',
+            'type': 'ir.actions.act_window',
+            'res_model': 'music.school.lecture.attendance',
+            'view_mode': 'list,form',
+            'domain': [('student_id', '=', self.id)],
+        }
+
+    def _compute_attendance_count(self):
+        for record in self:
+            record.attendance_count = self.env['music.school.lecture.attendance'].search_count([('student_id', '=', record.id)])

@@ -44,6 +44,8 @@
             <button string="Create lecture" name="create_lecture" type="object" class="btn-primary"/>
             <button string="Assign Students" name="assign_students" groups="music_school_idris.group_music_school_manager" type="object" class="btn-secondary"/>
             <button string="Finish Lecture" name="action_finish_lecture" type="object" class="btn-success"/>
+            <button string="Print Report 1" name="action_print_report" context="{'button1': True}" type="object" class="oe_highlight"/>
+            <button string="Print Report 2" name="action_print_report" context="{'button2': True}" type="object" class="oe_highlight"/>
             <field name="state" options="{'clickable': True}" widget="statusbar"></field>
             </header>
                 <sheet>
@@ -63,8 +65,8 @@
                     <group>         
                         <group>
                             <field name="instrument_id"></field>
-                            <field name="teacher_id" options="{'no_create':1,'no_quick_create':1, 'no_open':1}" domain="[('level', '=', level)]"/>
                             <field name="level"></field>
+                            <field name="teacher_id" options="{'no_create':1,'no_quick_create':1, 'no_open':1}" domain="[('level', '=', level)]"/>
                             <field name="company_id"></field>
                         </group>  
                         <group>

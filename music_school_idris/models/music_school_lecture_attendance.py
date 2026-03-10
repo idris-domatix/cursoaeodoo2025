@@ -3,7 +3,7 @@ from odoo import models, fields
 class MusicSchoolLectureAttendance(models.Model):
     _name = 'music.school.lecture.attendance'
     _description = 'Music School Lecture Attendance'
-    order = 'sequence, name desc'
+    _order = 'sequence desc'
 
     sequence = fields.Integer(
         string='Sequence', 

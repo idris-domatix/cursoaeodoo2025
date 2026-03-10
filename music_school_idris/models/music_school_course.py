@@ -55,8 +55,20 @@ class MusicSchoolCourse(models.Model):
     
     student_ids = fields.Many2many(
         comodel_name='music.school.student',
+        relation='music_school_course_student_rel',
+        column1='course_id',
+        column2='student_id',
         string='Students',
         help='Students enrolled in the course',
+    )
+
+    course_ids = fields.Many2many(
+        comodel_name='music.school.course',
+        relation='music_school_course_student_rel',
+        column1='student_id',
+        column2='course_id',
+        string='Courses',
+        help='Courses the student is enrolled in'
     )
 
     duration_days = fields.Integer(
@@ -185,3 +197,6 @@ class MusicSchoolCourse(models.Model):
         for course in courses:
             if course.end_date and course.end_date < fields.Date.today():
                 course.state = 'done'
+
+    def action_print_report(self):
+        return self.env.ref('music_school_idris.action_report_music_school_course').report_action(self)
